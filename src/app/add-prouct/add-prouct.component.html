@@ -1,0 +1,4 @@
+<p>add-prouct works!</p>
+
+Product Name: <input [(ngModel)]='cellValue' type="product"/>
+<a [routerLink]="['/addProduct', {cell:cellValue} ]" (click) = "Add($event)">Add Product</a>
