@@ -1,4 +1,41 @@
 <p>add-prouct works!</p>
 
 Product Name: <input [(ngModel)]='cellValue' type="product"/>
+Product Price: 
+Product Quantity: 
+Product Description: 
 <a [routerLink]="['/addProduct', {cell:cellValue} ]" (click) = "Add($event)">Add Product</a>
+
+<div class="container">
+    <form #productForm="ngForm">
+        
+        <div class="form-group">
+            <label for="Product_ID">Product_ID</label>
+            <input type="text" id="Product_ID" required [(ngModel)]="model.Product_ID" name="Product_ID">
+        </div>
+
+        <div class="form-group">
+            <label for="Product_Name">Product_Name</label>
+            <input type="text" id="Product_Name" required [(ngModel)]="model.Product_Name" name="Product_Name">
+            TODO: remove this: {{model.Product_Name}}
+        </div>
+
+        <div class="form-group">
+            <label for="Product_Price">Product_Price</label>
+            <input type="text" id="Product_Price" required [(ngModel)]="model.Product_Price" name="Product_Price">
+        </div>
+
+        <div class="form-group">
+            <label for="Product_Quantity">Product_Quantity</label>
+            <input type="text" id="Product_Quantity" required [(ngModel)]="model.Product_Quantity" name="Product_Quantity">
+        </div>
+
+        <div class="form-group">
+            <label for="Product_Description">Product_Description</label>
+            <input type="text" id="Product_Description" [(ngModel)]="model.Product_Description" name="Product_Description">
+        </div>
+
+        <button type="submit" (click) = "Add($event)">Add Product</button>
+
+    </form>
+</div>

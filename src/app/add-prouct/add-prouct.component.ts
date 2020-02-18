@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListProductComponent} from '../list-product/list-product.component';
+import { HttpClient } from '@angular/common/http';
+import { products } from '../models/products';
 
 @Component({
   selector: 'app-add-prouct',
@@ -8,19 +9,25 @@ import { ListProductComponent} from '../list-product/list-product.component';
 })
 export class AddProuctComponent implements OnInit {
 
-  constructor() {
+  constructor(private http: HttpClient) {
     console.log("fadf");
   }
+
+  model = new products();
 
   ngOnInit() {
   }
 
-  // Add(event : Event)
-  // {
-  //   console.log("Add method called");
-  //   var x : string[] = ((<HTMLAnchorElement>event.target).href).split(';');
-  //   x = x[x.length-1].split('=');
-  //   ListProductComponent.products.push({"id":ListProductComponent.products.length,"name":x[1],"description":"Incidunt et magni","price":"170.00","quantity":56840});
-  //   console.log(ListProductComponent.products);
-  // }
+  Add(event : Event)
+  {
+    this.http.post('/product/add',this.model).subscribe((data:any) => {
+
+    });
+    console.log("asdf");
+    // console.log("Add method called");
+    // var x : string[] = ((<HTMLAnchorElement>event.target).href).split(';');
+    // x = x[x.length-1].split('=');
+    // ListProductComponent.products.push({"id":ListProductComponent.products.length,"name":x[1],"description":"Incidunt et magni","price":"170.00","quantity":56840});
+    // console.log(ListProductComponent.products);
+  }
 }

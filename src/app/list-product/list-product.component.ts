@@ -13,11 +13,10 @@ export class ListProductComponent implements OnInit {
 
   // 
   constructor(private route: ActivatedRoute,  private http: HttpClient) { }
-
-  pd : products = new products({id: 5,name: "Orange"});
   
+  pd : products[] = [];
   // static products = [
-  //   {"id":1,"name":"Product1","description":"Incidunt et magni","price":"170.00","quantity":56840},
+  //     {"id":1,"name":"Product1","description":"Incidunt et magni","price":"170.00","quantity":56840},
   //   {"id":2,"name":"Product2","description":"Sint libero mollitia","price":"302.00","quantity":9358},
   //   {"id":3,"name":"Product3","description":"In consequuntur cupiditat","price":"279.00","quantity":90316},
   //   {"id":4,"name":"Product4","description":"Saepe nemo praesentium","price":"760.00","quantity":5899}
@@ -29,8 +28,11 @@ export class ListProductComponent implements OnInit {
     console.log("inside the Init")
     this.subscriber = this.route.params.subscribe( params => {
         console.log("Hello");
-          this.http.get('/empdetails/Trainee1').subscribe((data : any) => {
-            console.log(data);
+          this.http.get('/product/list').subscribe((data : any) => {
+            data.forEach(em => {
+              this.pd.push(em);
+              console.log(em.Product_ID);
+            });
           } 
         );
       }

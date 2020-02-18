@@ -1,5 +1,5 @@
 {
-    "/empdetails/*": {
+    "/product/*": {
       "target": "http://localhost:2121",
       "secure": false,
       "logLevel": "debug",
