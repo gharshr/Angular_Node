@@ -21,7 +21,7 @@ export class AddProuctComponent implements OnInit {
   Add(event : Event)
   {
     this.http.post('/product/add',this.model).subscribe((data:any) => {
-
+      console.log(data);
     });
     console.log("asdf");
     // console.log("Add method called");
