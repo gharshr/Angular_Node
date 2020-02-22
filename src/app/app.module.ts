@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProuctComponent } from './add-prouct/add-prouct.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { HttpClientModule } from '@angular/common/http'; 
+import { selectedProduct } from './service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'listProduct', component: ListProductComponent },
       { path: 'addProduct', component: AddProuctComponent},
       { path: 'deleteProduct/:name/:id', component: DeleteProductComponent},
-      { path: 'editProduct', component: EditProductComponent}
+      { path: 'editProduct', component: ListProductComponent}
     ])
   ],
   providers: [],
