@@ -25,7 +25,7 @@ export class ListProductComponent implements OnInit {
   // ];
 
   private subscriber: any;
-
+  pvid: Number;
   model : products;
 
   ngOnInit() {
@@ -65,9 +65,9 @@ export class ListProductComponent implements OnInit {
   
   Edit1 (event : products)
   {
-    this.uploadFileToActivity();
+    //this.uploadFileToActivity();
     console.log("edit1 is called");
-    this.http.post('/product/edit',this.model).subscribe((data:any) => {
+    this.http.patch('/product/'+this.pvid,this.model).subscribe((data:any) => {
       console.log(data);
       if(data.Status == 'Successfull') {
         alert("Successfully Updated");
@@ -91,7 +91,7 @@ export class ListProductComponent implements OnInit {
   Edit (ab : products)
   {
     // console.log("Hello There");
-    // this.model = ab;
+    this.pvid = ab.id;
     // this.message.emit(ab);
     this.loadedisproduct = 'epd';
     console.log(ab);
@@ -113,9 +113,9 @@ export class ListProductComponent implements OnInit {
   Delete1 (event : products)
   {
     console.log("delete1 is called");
-    this.http.post('/product/delete',this.model.Product_ID).subscribe((data:any) => {
+    this.http.delete('/products/'+this.model.id).subscribe((data:any) => {
       console.log(data);
-      if(data.Status == 'Successfull') {
+      if(data == 'Successfull') {
         alert("Successfully Updated");
         this.loadedisproduct = "lpd";
       }

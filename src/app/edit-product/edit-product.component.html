@@ -3,29 +3,29 @@
     <form #productForm="ngForm">
         
         <div class="form-group">
-            <label for="Product_ID">Product_ID</label>
-            <input type="text" id="Product_ID" required [(ngModel)]="model.Product_ID" name="Product_ID">
+            <label for="id">id</label>
+            <input type="text" id="id" required [(ngModel)]="model.id" name="id">
         </div>
 
         <div class="form-group">
-            <label for="Product_Name">Product_Name</label>
-            <input type="text" id="Product_Name" required [(ngModel)]="model.Product_Name" name="Product_Name">
-            TODO: remove this: {{model.Product_Name}}
+            <label for="name">name</label>
+            <input type="text" id="name" required [(ngModel)]="model.name" name="name">
+            TODO: remove this: {{model.name}}
         </div>
 
         <div class="form-group">
-            <label for="Product_Price">Product_Price</label>
-            <input type="text" id="Product_Price" required [(ngModel)]="model.Product_Price" name="Product_Price">
+            <label for="price">price</label>
+            <input type="text" id="price" required [(ngModel)]="model.price" name="price">
         </div>
 
         <div class="form-group">
-            <label for="Product_Quantity">Product_Quantity</label>
-            <input type="text" id="Product_Quantity" required [(ngModel)]="model.Product_Quantity" name="Product_Quantity">
+            <label for="quantity">quantity</label>
+            <input type="text" id="quantity" required [(ngModel)]="model.quantity" name="quantity">
         </div>
 
         <div class="form-group">
-            <label for="Product_Description">Product_Description</label>
-            <input type="text" id="Product_Description" [(ngModel)]="model.Product_Description" name="Product_Description">
+            <label for="descritption">descritption</label>
+            <input type="text" id="descritption" [(ngModel)]="model.descritption" name="descritption">
         </div>
 
         <button type="submit" (click) = "Add($event)">Add Product</button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { products } from '../models/products';
+import { Options } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-add-prouct',
@@ -20,7 +21,16 @@ export class AddProuctComponent implements OnInit {
 
   Add(event : Event)
   {
-    this.http.post('/product/add',this.model).subscribe((data:any) => {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    
+    this.http.post('/product',{
+      "id": 12,
+      "name": "Kiwi",
+      "quantity": 25,
+      "price": "52",
+      "description": "Seeded Fruit with Sour & Sweet in taste"
+    }, { headers: headers }).subscribe((data:any) => {
       console.log(data);
     });
     console.log("asdf");

@@ -2,43 +2,43 @@
   <p *ngIf= "loadedisproduct === 'epd'">edit-product works!</p>
   <p *ngIf= "loadedisproduct === 'dpd'">delete-product works!</p>
   <div *ngIf= "loadedisproduct === 'dpd'">
-    Product_ID: {{model.Product_ID}} <br>
-    Product_Name: {{model.Product_Name}} <br>
-    Product_Price: {{model.Product_Price}} <br>
-    Product_Quantity: {{model.Product_Quantity}} <br>
-    Product_Description: {{model.Product_Description}} <br>
+    id: {{model.id}} <br>
+    name: {{model.name}} <br>
+    price: {{model.price}} <br>
+    quantity: {{model.quantity}} <br>
+    description: {{model.description}} <br>
     <button *ngIf= "loadedisproduct === 'dpd'" type="submit" (click) = "Delete1($event)">Delete</button>
   </div>
   <form #productForm="ngForm" *ngIf= "loadedisproduct === 'epd'">
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="file">Choose File</label>
       <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-    </div>  
+    </div>   -->
     
     <div class="form-group">
-      <label for="Product_ID">Product_ID</label>
-      <input type="text" id="Product_ID" required [(ngModel)]="model.Product_ID" name="Product_ID">
+      <label for="id">id</label>
+      <input type="text" id="id" required [(ngModel)]="model.id" name="id">
     </div>
 
     <div class="form-group">
-      <label for="Product_Name">Product_Name</label>
-      <input type="text" id="Product_Name" required [(ngModel)]="model.Product_Name" name="Product_Name">
-      TODO: remove this: {{model.Product_Name}}
+      <label for="name">name</label>
+      <input type="text" id="name" required [(ngModel)]="model.name" name="name">
+      TODO: remove this: {{model.name}}
     </div>
 
     <div class="form-group">
-      <label for="Product_Price">Product_Price</label>
-      <input type="text" id="Product_Price" required [(ngModel)]="model.Product_Price" name="Product_Price">
+      <label for="price">price</label>
+      <input type="text" id="price" required [(ngModel)]="model.price" name="price">
     </div>
 
     <div class="form-group">
-      <label for="Product_Quantity">Product_Quantity</label>
-      <input type="text" id="Product_Quantity" required [(ngModel)]="model.Product_Quantity" name="Product_Quantity">
+      <label for="quantity">quantity</label>
+      <input type="text" id="quantity" required [(ngModel)]="model.quantity" name="quantity">
     </div>
 
     <div class="form-group">
-      <label for="Product_Description">Product_Description</label>
-      <input type="text" id="Product_Description" [(ngModel)]="model.Product_Description" name="Product_Description">
+      <label for="description">description</label>
+      <input type="text" id="description" [(ngModel)]="model.description" name="description">
     </div>
 
     <button type="submit" (click) = "Edit1($event)">Update</button>
@@ -47,11 +47,11 @@
 <div *ngIf= "loadedisproduct === 'lpd'">
   <p>list-product works!</p>
   <div *ngFor="let product of pd">
-    {{ product.Product_ID }}
-    {{ product.Product_Name }}
-    {{ product.Product_Price }}  
-    {{ product.Product_Quantity }}  
-    {{ product.Product_Description }}  
+    {{ product.id }}
+    {{ product.name }}
+    {{ product.price }}  
+    {{ product.quantity }}  
+    {{ product.description }}  
     <!-- <a [routerLink]="['/deleteProduct', product.name, product.id]" (click) = "Delete($event)">Delete</a> -->
     <button (click) = "Delete(product)">Delete</button>
     <button (click) = "Edit(product)">Edit</button>
